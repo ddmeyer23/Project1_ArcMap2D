@@ -1,6 +1,6 @@
-require(["esri/config","esri/Map", "esri/views/MapView","esri/widgets/BasemapToggle", "esri/widgets/BasemapGallery", "esri/layers/FeatureLayer", "esri/WebMap","esri/widgets/Legend","esri/views/SceneView","esri/widgets/Search"], 
+require(["esri/config","esri/Map", "esri/views/MapView", "esri/layers/FeatureLayer", "esri/WebMap","esri/widgets/Legend","esri/views/SceneView","esri/widgets/LayerList"], 
       
-        function (esriConfig,Map, MapView,BasemapToggle, BasemapGallery, FeatureLayer, WebMap,Legend,SceneView,Search){
+        function (esriConfig,Map, MapView, FeatureLayer, WebMap,Legend,SceneView,LayerList){
   
   const webmap = new WebMap({
   portalItem: { // autocasts as new PortalItem()
@@ -14,23 +14,24 @@ require(["esri/config","esri/Map", "esri/views/MapView","esri/widgets/BasemapTog
           center: [137, 34]
         });
 
-        view.when(function() {
-          // get the first layer in the collection of operational layers in the WebMap
-          // when the resources in the MapView have loaded.
-          var featureLayer = webmap.layers.getItemAt(1);
-
-          var legend = new Legend({
-            view: view,
-            layerInfos: [{
-                layer:featureLayer,
-                title: "Recent Earthquake Intensities"
-              }
-            ]
-          });
-
-          // Add widget to the bottom right corner of the view
-          view.ui.add(legend, "bottom-right");
+        
+  // Add a legend instance to the panel of a
+        // ListItem in a LayerList instance
+        const layerList = new LayerList({
+          view: view,
+          listItemCreatedFunction: function(event) {
+            const item = event.item;
+            if (item.layer.type != "group") {
+              // don't show legend twice
+              item.panel = {
+                content: "legend",
+                open: true
+              };
+            }
+          }
         });
+        view.ui.add(layerList, "bottom-right");
+     
      
   
   });
