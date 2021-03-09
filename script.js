@@ -23,7 +23,7 @@ require(["esri/config","esri/Map", "esri/views/MapView","esri/widgets/BasemapTog
             view: view,
             layerInfos: [{
                 layer:featureLayer,
-                title: "Recent Earthquakes"
+                title: "Recent Earthquake Intensities"
               }
             ]
           });
