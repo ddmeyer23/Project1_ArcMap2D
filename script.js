@@ -1,4 +1,4 @@
-require(["esri/Config","esri/Map", "esri/views/MapView", "esri/layers/FeatureLayer", "esri/WebMap","esri/widgets/Legend","esri/views/SceneView","esri/widgets/LayerList"], 
+require(["esri/config","esri/Map", "esri/views/MapView", "esri/layers/FeatureLayer", "esri/WebMap","esri/widgets/Legend","esri/views/SceneView","esri/widgets/LayerList"], 
       
         function (esriConfig, Map, MapView, FeatureLayer, WebMap,Legend,SceneView,LayerList){
   
