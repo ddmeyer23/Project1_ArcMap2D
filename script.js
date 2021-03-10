@@ -1,6 +1,6 @@
-require(["esri/config","esri/Map", "esri/views/MapView", "esri/layers/FeatureLayer", "esri/WebMap","esri/widgets/Legend","esri/views/SceneView","esri/widgets/LayerList"], 
+require(["esri/Config","esri/Map", "esri/views/MapView", "esri/layers/FeatureLayer", "esri/WebMap","esri/widgets/Legend","esri/views/SceneView","esri/widgets/LayerList"], 
       
-        function (esriConfig,Map, MapView, FeatureLayer, WebMap,Legend,SceneView,LayerList){
+        function (esriConfig, Map, MapView, FeatureLayer, WebMap,Legend,SceneView,LayerList){
   
   const webmap = new WebMap({
   portalItem: { // autocasts as new PortalItem()
